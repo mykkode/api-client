@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/repos/api-client/api-client/apiClientException.cpp">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/repos/api-client/api-client/apiClientException.hpp">
+			<Option target="test"/>
+		</Unit>
 		<Unit filename="/repos/api-client/api-client/apiClientSimple.cpp">
 			<Option target="test"/>
 		</Unit>

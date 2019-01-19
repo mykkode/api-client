@@ -6,11 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/repos/api-client/api-client/apiClientSimple.hpp
+/repos/api-client/api-client/apiClientException.hpp
+exception
+-
+string
+-
 
-/repos/api-client/api-client/test.cpp
+/repos/api-client/api-client/apiClientSimple.cpp
 apiClientSimple.hpp
 /repos/api-client/api-client/apiClientSimple.hpp
-iostream
+apiClientException.hpp
+/repos/api-client/api-client/apiClientException.hpp
+
+/repos/api-client/api-client/apiClientSimple.hpp
+curl/curl.h
 -
 

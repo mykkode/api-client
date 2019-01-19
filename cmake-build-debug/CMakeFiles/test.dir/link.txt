@@ -1,2 +1,2 @@
-/usr/bin/ar qc libtest.a  CMakeFiles/test.dir/test.cpp.o CMakeFiles/test.dir/apiClientSimple.cpp.o
+/usr/bin/ar qc libtest.a  CMakeFiles/test.dir/test.cpp.o CMakeFiles/test.dir/apiClientSimple.cpp.o CMakeFiles/test.dir/apiClientException.cpp.o
 /usr/bin/ranlib libtest.a

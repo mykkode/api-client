@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/repos/api-client/api-client/apiClientException.cpp" "/repos/api-client/api-client/cmake-build-debug/CMakeFiles/test.dir/apiClientException.cpp.o"
   "/repos/api-client/api-client/apiClientSimple.cpp" "/repos/api-client/api-client/cmake-build-debug/CMakeFiles/test.dir/apiClientSimple.cpp.o"
   "/repos/api-client/api-client/test.cpp" "/repos/api-client/api-client/cmake-build-debug/CMakeFiles/test.dir/test.cpp.o"
   )

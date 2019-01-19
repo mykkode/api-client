@@ -123,6 +123,33 @@ test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
+apiClientException.o: apiClientException.cpp.o
+
+.PHONY : apiClientException.o
+
+# target to build an object file
+apiClientException.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.o
+.PHONY : apiClientException.cpp.o
+
+apiClientException.i: apiClientException.cpp.i
+
+.PHONY : apiClientException.i
+
+# target to preprocess a source file
+apiClientException.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.i
+.PHONY : apiClientException.cpp.i
+
+apiClientException.s: apiClientException.cpp.s
+
+.PHONY : apiClientException.s
+
+# target to generate assembly for a file
+apiClientException.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.s
+.PHONY : apiClientException.cpp.s
+
 apiClientSimple.o: apiClientSimple.cpp.o
 
 .PHONY : apiClientSimple.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... edit_cache"
+	@echo "... apiClientException.o"
+	@echo "... apiClientException.i"
+	@echo "... apiClientException.s"
 	@echo "... apiClientSimple.o"
 	@echo "... apiClientSimple.i"
 	@echo "... apiClientSimple.s"
