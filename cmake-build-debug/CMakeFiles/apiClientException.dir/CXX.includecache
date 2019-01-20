@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/repos/api-client/api-client/apiClientException.cpp
+apiClientException.hpp
+/repos/api-client/api-client/apiClientException.hpp
+
+/repos/api-client/api-client/apiClientException.hpp
+string
+-
+

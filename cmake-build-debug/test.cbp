@@ -27,11 +27,21 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="test">
-				<Option output="/repos/api-client/api-client/cmake-build-debug/libtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="/repos/api-client/api-client/cmake-build-debug/test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/c++/7"/>
@@ -51,10 +61,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="test/fast">
-				<Option output="/repos/api-client/api-client/cmake-build-debug/libtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="/repos/api-client/api-client/cmake-build-debug/test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/include/c++/7"/>
@@ -73,11 +83,93 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="apiClientException">
+				<Option output="/repos/api-client/api-client/cmake-build-debug/libapiClientException.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 apiClientException"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="apiClientException/fast">
+				<Option output="/repos/api-client/api-client/cmake-build-debug/libapiClientException.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 apiClientException/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="apiClientSimple">
+				<Option output="/repos/api-client/api-client/cmake-build-debug/libapiClientSimple.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 apiClientSimple"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="apiClientSimple/fast">
+				<Option output="/repos/api-client/api-client/cmake-build-debug/libapiClientSimple.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/repos/api-client/api-client/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 apiClientSimple/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/repos/api-client/api-client/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -85,16 +177,16 @@
 			</Target>
 		</Build>
 		<Unit filename="/repos/api-client/api-client/apiClientException.cpp">
-			<Option target="test"/>
+			<Option target="apiClientException"/>
 		</Unit>
 		<Unit filename="/repos/api-client/api-client/apiClientException.hpp">
-			<Option target="test"/>
+			<Option target="apiClientException"/>
 		</Unit>
 		<Unit filename="/repos/api-client/api-client/apiClientSimple.cpp">
-			<Option target="test"/>
+			<Option target="apiClientSimple"/>
 		</Unit>
 		<Unit filename="/repos/api-client/api-client/apiClientSimple.hpp">
-			<Option target="test"/>
+			<Option target="apiClientSimple"/>
 		</Unit>
 		<Unit filename="/repos/api-client/api-client/test.cpp">
 			<Option target="test"/>

@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test.dir/test.cpp.o"
-  "CMakeFiles/test.dir/apiClientSimple.cpp.o"
-  "CMakeFiles/test.dir/apiClientException.cpp.o"
-  "libtest.pdb"
-  "libtest.a"
+  "test.pdb"
+  "test"
 )
 
 # Per-language clean rules from dependency scanning.

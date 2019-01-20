@@ -123,13 +123,39 @@ test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
+#=============================================================================
+# Target rules for targets named apiClientException
+
+# Build rule for target.
+apiClientException: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 apiClientException
+.PHONY : apiClientException
+
+# fast build rule for target.
+apiClientException/fast:
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/build
+.PHONY : apiClientException/fast
+
+#=============================================================================
+# Target rules for targets named apiClientSimple
+
+# Build rule for target.
+apiClientSimple: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 apiClientSimple
+.PHONY : apiClientSimple
+
+# fast build rule for target.
+apiClientSimple/fast:
+	$(MAKE) -f CMakeFiles/apiClientSimple.dir/build.make CMakeFiles/apiClientSimple.dir/build
+.PHONY : apiClientSimple/fast
+
 apiClientException.o: apiClientException.cpp.o
 
 .PHONY : apiClientException.o
 
 # target to build an object file
 apiClientException.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.o
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientException.cpp.o
 .PHONY : apiClientException.cpp.o
 
 apiClientException.i: apiClientException.cpp.i
@@ -138,7 +164,7 @@ apiClientException.i: apiClientException.cpp.i
 
 # target to preprocess a source file
 apiClientException.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.i
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientException.cpp.i
 .PHONY : apiClientException.cpp.i
 
 apiClientException.s: apiClientException.cpp.s
@@ -147,7 +173,7 @@ apiClientException.s: apiClientException.cpp.s
 
 # target to generate assembly for a file
 apiClientException.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientException.cpp.s
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientException.cpp.s
 .PHONY : apiClientException.cpp.s
 
 apiClientSimple.o: apiClientSimple.cpp.o
@@ -156,7 +182,7 @@ apiClientSimple.o: apiClientSimple.cpp.o
 
 # target to build an object file
 apiClientSimple.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientSimple.cpp.o
+	$(MAKE) -f CMakeFiles/apiClientSimple.dir/build.make CMakeFiles/apiClientSimple.dir/apiClientSimple.cpp.o
 .PHONY : apiClientSimple.cpp.o
 
 apiClientSimple.i: apiClientSimple.cpp.i
@@ -165,7 +191,7 @@ apiClientSimple.i: apiClientSimple.cpp.i
 
 # target to preprocess a source file
 apiClientSimple.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientSimple.cpp.i
+	$(MAKE) -f CMakeFiles/apiClientSimple.dir/build.make CMakeFiles/apiClientSimple.dir/apiClientSimple.cpp.i
 .PHONY : apiClientSimple.cpp.i
 
 apiClientSimple.s: apiClientSimple.cpp.s
@@ -174,7 +200,7 @@ apiClientSimple.s: apiClientSimple.cpp.s
 
 # target to generate assembly for a file
 apiClientSimple.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/apiClientSimple.cpp.s
+	$(MAKE) -f CMakeFiles/apiClientSimple.dir/build.make CMakeFiles/apiClientSimple.dir/apiClientSimple.cpp.s
 .PHONY : apiClientSimple.cpp.s
 
 test.o: test.cpp.o
@@ -211,8 +237,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... apiClientException"
+	@echo "... apiClientSimple"
 	@echo "... apiClientException.o"
 	@echo "... apiClientException.i"
 	@echo "... apiClientException.s"
