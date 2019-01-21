@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libapiClientSimple.so -o libapiClientSimple.so CMakeFiles/apiClientSimple.dir/apiClientSimple.cpp.o 

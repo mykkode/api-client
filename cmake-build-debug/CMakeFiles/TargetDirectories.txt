@@ -1,6 +1,0 @@
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/edit_cache.dir
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/test.dir
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/apiClientResponse.dir
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/apiClientException.dir
-/repos/api-client/api-client/cmake-build-debug/CMakeFiles/apiClientSimple.dir
