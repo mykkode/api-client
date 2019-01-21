@@ -4,3 +4,6 @@
 CMakeFiles/apiClientException.dir/apiClientException.cpp.o: ../apiClientException.cpp
 CMakeFiles/apiClientException.dir/apiClientException.cpp.o: ../apiClientException.hpp
 
+CMakeFiles/apiClientException.dir/apiClientResponse.cpp.o: ../apiClientResponse.cpp
+CMakeFiles/apiClientException.dir/apiClientResponse.cpp.o: ../apiClientResponse.hpp
+

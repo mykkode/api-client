@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/test.dir/test.cpp.o  -o test -Wl,-rpath,/repos/api-client/api-client/cmake-build-debug libapiClientSimple.so libapiClientException.so -lcurl 
+/usr/bin/c++  -g   CMakeFiles/test.dir/test.cpp.o  -o test -Wl,-rpath,/repos/api-client/api-client/cmake-build-debug libapiClientSimple.so libapiClientException.so libapiClientResponse.so -lcurl 

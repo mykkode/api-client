@@ -1,22 +1,53 @@
 //
 // Created by mykkode on 19.01.2019.
 //
-
-#include "apiClientException.hpp"
 #include "apiClientSimple.hpp"
+#include <sstream>
+size_t  apiClientSimple::parseHeaderElement(char *buffer, size_t size, size_t nitems, void *userdata) {
+    auto * theResponse = (apiClientResponse *) userdata;
+    size_t length;
+    length = nitems * size;
 
-#include <iostream>
+    char * target;
+    target = (char *)memchr( buffer, ':', nitems);
+    if(target != nullptr){
+        *target = 0;
+        if(target + 2 < buffer + length -1) {
+            target += 2;
+        }
+        theResponse -> headerInsert(buffer, target);
+    }
+    else {
+        target = (char *)memchr( buffer, ' ', nitems);
+        if(target != nullptr) {
+            int httpCode = (target[1] -'0') * 100 + (target[2] -'0')*10 + (target[3] -'0');
+            theResponse -> headerInsert("HTTP", std::to_string(httpCode ) + " ");
+        }
 
-bool apiClientSimple::initialized = 0;
+    }
+    return length;
+}
+size_t apiClientSimple::writeResponse(char *ptr, size_t size, size_t nmemb, void *userdata) {
+    auto * theResponse = (apiClientResponse *) userdata;
+    size_t length;
+    length = nmemb * size;
+
+    theResponse->appendResponse(ptr, length);
+
+    return length;
+}
+bool apiClientSimple::initialized = false;
 
 apiClientSimple::apiClientSimple() {
     if(!initialized){
         throw(apiClientException(apiClientException::API_CLIENT_EXCEPTION_NOT_INITIALIZED));
     }
     handler  = curl_easy_init();
-    if(handler == NULL){
+    if(handler == nullptr){
         throw(apiClientException(apiClientException::API_CLIENT_EXCEPTION_ERROR_INITIALIZING));
     }
+    curl_easy_setopt(handler, CURLOPT_HEADERFUNCTION, apiClientSimple::parseHeaderElement);
+    curl_easy_setopt(handler, CURLOPT_WRITEFUNCTION, writeResponse);
 }
 void apiClientSimple::initialize() {
     apiClientException::initialize();
@@ -30,14 +61,14 @@ void apiClientSimple::deinitialize() {
     curl_global_cleanup();
 }
 
-void apiClientSimple::setUrl(const std::string newUrl) {
+void apiClientSimple::setUrl(std::string newUrl) {
     url = newUrl;
 
     std::string::iterator it = url.end() - 1;
     if(*it == '/'){
         url.pop_back();
     }
-    curl_easy_setopt(handler, CURLOPT_URL, url + endpoint . c_str());
+    curl_easy_setopt(handler, CURLOPT_URL, (url + endpoint) . c_str());
 }
 
 void apiClientSimple::setEndpoint(const std::string newEndpoint) {
@@ -51,7 +82,7 @@ void apiClientSimple::setEndpoint(const std::string newEndpoint) {
 }
 
 void apiClientSimple::modifyHeader(const std::string newHeader[], int numberOfHeaders){
-    struct curl_slist *headers = NULL;
+    struct curl_slist *headers = nullptr;
     for(int i = 0; i<numberOfHeaders; i++){
         headers = curl_slist_append(headers, (newHeader[i]).c_str());
     }
@@ -64,11 +95,16 @@ void apiClientSimple::reset() {
 void apiClientSimple::apiDelete() {
 
 }
-void apiClientSimple::apiGet() {
+apiClientResponse * apiClientSimple::apiGet() {
+    auto theResponse = new apiClientResponse();
+    curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
     resource = curl_easy_perform(handler);
+
     if(resource != CURLE_OK) {
         throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
     }
+    return theResponse;
 }
 void apiClientSimple::apiPost() {
 

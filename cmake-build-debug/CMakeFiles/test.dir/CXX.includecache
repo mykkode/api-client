@@ -10,18 +10,36 @@
 string
 -
 
+/repos/api-client/api-client/apiClientResponse.hpp
+string
+-
+map
+-
+iostream
+-
+
 /repos/api-client/api-client/apiClientSimple.hpp
 curl/curl.h
 -
 vendor/nlohmann/json.hpp
 /repos/api-client/api-client/vendor/nlohmann/json.hpp
+apiClientException.hpp
+/repos/api-client/api-client/apiClientException.hpp
+apiClientSimple.hpp
+/repos/api-client/api-client/apiClientSimple.hpp
+apiClientResponse.hpp
+/repos/api-client/api-client/apiClientResponse.hpp
 
 /repos/api-client/api-client/test.cpp
 apiClientSimple.hpp
 /repos/api-client/api-client/apiClientSimple.hpp
 apiClientException.hpp
 /repos/api-client/api-client/apiClientException.hpp
+apiClientResponse.hpp
+/repos/api-client/api-client/apiClientResponse.hpp
 iostream
+-
+fstream
 -
 
 /repos/api-client/api-client/vendor/nlohmann/json.hpp

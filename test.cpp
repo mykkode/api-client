@@ -1,16 +1,22 @@
 #include "apiClientSimple.hpp"
 #include "apiClientException.hpp"
+#include "apiClientResponse.hpp"
 
 #include <iostream>
+#include <fstream>
 
+std::ofstream f("iesire.png");
 int main() {
     apiClientSimple::initialize();
 
     apiClientSimple * myApi = new apiClientSimple ();
-    myApi->setUrl("https://5bca34d3-506c-45c5-8c6e-23ae85009a7d.mock.pstmn.io");
-    myApi->setEndpoint("/home");
+    myApi->setUrl("http://localhost:3000");
+    myApi->setEndpoint("/answer");
     try{
-        myApi->apiGet();
+        apiClientResponse * respose = myApi->apiGet();
+        respose -> debug();
+        std::string image = respose->getBody();
+        f<<image;
     }
     catch(apiClientException & e) {
         std::cout <<e.what();

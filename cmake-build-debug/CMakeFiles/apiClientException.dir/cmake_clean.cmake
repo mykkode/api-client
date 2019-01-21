@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/apiClientException.dir/apiClientException.cpp.o"
+  "CMakeFiles/apiClientException.dir/apiClientResponse.cpp.o"
   "libapiClientException.pdb"
   "libapiClientException.so"
 )

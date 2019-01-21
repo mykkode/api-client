@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /repos/api-client/api-client/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/58/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/snap/clion/58/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,6 +122,19 @@ test: cmake_check_build_system
 test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named apiClientResponse
+
+# Build rule for target.
+apiClientResponse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 apiClientResponse
+.PHONY : apiClientResponse
+
+# fast build rule for target.
+apiClientResponse/fast:
+	$(MAKE) -f CMakeFiles/apiClientResponse.dir/build.make CMakeFiles/apiClientResponse.dir/build
+.PHONY : apiClientResponse/fast
 
 #=============================================================================
 # Target rules for targets named apiClientException
@@ -175,6 +188,36 @@ apiClientException.s: apiClientException.cpp.s
 apiClientException.cpp.s:
 	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientException.cpp.s
 .PHONY : apiClientException.cpp.s
+
+apiClientResponse.o: apiClientResponse.cpp.o
+
+.PHONY : apiClientResponse.o
+
+# target to build an object file
+apiClientResponse.cpp.o:
+	$(MAKE) -f CMakeFiles/apiClientResponse.dir/build.make CMakeFiles/apiClientResponse.dir/apiClientResponse.cpp.o
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientResponse.cpp.o
+.PHONY : apiClientResponse.cpp.o
+
+apiClientResponse.i: apiClientResponse.cpp.i
+
+.PHONY : apiClientResponse.i
+
+# target to preprocess a source file
+apiClientResponse.cpp.i:
+	$(MAKE) -f CMakeFiles/apiClientResponse.dir/build.make CMakeFiles/apiClientResponse.dir/apiClientResponse.cpp.i
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientResponse.cpp.i
+.PHONY : apiClientResponse.cpp.i
+
+apiClientResponse.s: apiClientResponse.cpp.s
+
+.PHONY : apiClientResponse.s
+
+# target to generate assembly for a file
+apiClientResponse.cpp.s:
+	$(MAKE) -f CMakeFiles/apiClientResponse.dir/build.make CMakeFiles/apiClientResponse.dir/apiClientResponse.cpp.s
+	$(MAKE) -f CMakeFiles/apiClientException.dir/build.make CMakeFiles/apiClientException.dir/apiClientResponse.cpp.s
+.PHONY : apiClientResponse.cpp.s
 
 apiClientSimple.o: apiClientSimple.cpp.o
 
@@ -236,14 +279,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... rebuild_cache"
+	@echo "... apiClientResponse"
 	@echo "... apiClientException"
 	@echo "... apiClientSimple"
 	@echo "... apiClientException.o"
 	@echo "... apiClientException.i"
 	@echo "... apiClientException.s"
+	@echo "... apiClientResponse.o"
+	@echo "... apiClientResponse.i"
+	@echo "... apiClientResponse.s"
 	@echo "... apiClientSimple.o"
 	@echo "... apiClientSimple.i"
 	@echo "... apiClientSimple.s"
