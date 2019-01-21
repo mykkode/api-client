@@ -5,25 +5,36 @@
 #include <iostream>
 #include <fstream>
 
-std::ofstream f("iesire.png");
+std::ofstream f("poza2.jpg");
 int main() {
     apiClientSimple::initialize();
 
     apiClientSimple * myApi = new apiClientSimple ();
     myApi->setUrl("http://localhost:3000");
-    myApi->setEndpoint("/answer");
+    apiClientResponse * respose;
     try{
-        apiClientResponse * respose = myApi->apiGet();
-        respose -> debug();
+        myApi->setEndpoint("/photo");
+        respose = myApi->apiGet();
         std::string image = respose->getBody();
         f<<image;
         delete respose;
 
-        myApi->setEndpoint("/dolphins");
+        myApi->setEndpoint("/users");
         respose = myApi->apiPost("user=dolph");
         std::cout<<std::endl;
         std::cout<<respose->getBody();
-        respose -> debug();
+        delete respose;
+
+        myApi->setEndpoint("/users/1");
+        respose = myApi->apiPatch("user=dolphModified");
+        std::cout<<std::endl;
+        std::cout<<respose->getBody();
+        delete respose;
+//
+        myApi->setEndpoint("/users/1");
+        respose = myApi->apiDelete();
+        std::cout<<std::endl;
+        std::cout<<respose->getBody();
         delete respose;
     }
     catch(apiClientException & e) {

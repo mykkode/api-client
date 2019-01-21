@@ -16,7 +16,7 @@ private:
 CURL * handler;
 std::string url;
 std::string endpoint;
-CURLcode resource;
+
 public:
     static bool initialized;
     apiClientSimple();
@@ -30,10 +30,10 @@ public:
     void modifyHeader(const std::string newHeader[], int numberOfHeaders);
     void reset();
     apiClientResponse *  apiGet();
-    apiClientResponse * apiPost(std::string postFields);
-    void apiPut();
-    void apiPatch();
-    void apiDelete();
+    apiClientResponse * apiPost(std::string);
+    apiClientResponse *  apiPut();
+    apiClientResponse * apiPatch(std::string);
+    apiClientResponse * apiDelete();
 };
 
 

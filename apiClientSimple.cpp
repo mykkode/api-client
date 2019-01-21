@@ -92,40 +92,68 @@ void apiClientSimple::reset() {
     curl_easy_reset(handler);
 }
 
-void apiClientSimple::apiDelete() {
+apiClientResponse * apiClientSimple::apiDelete() {
+    CURLcode errCode;
+    auto theResponse = new apiClientResponse();
+    curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_CUSTOMREQUEST, "DELETE");
 
+    errCode = curl_easy_perform(handler);
+
+    if(errCode != CURLE_OK) {
+        throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
+    }
+    return theResponse;
 }
 apiClientResponse * apiClientSimple::apiGet() {
+    CURLcode errCode;
     auto theResponse = new apiClientResponse();
     curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
     curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_HTTPGET, 1L);
 
-    resource = curl_easy_perform(handler);
+    errCode = curl_easy_perform(handler);
 
-    if(resource != CURLE_OK) {
+    if(errCode != CURLE_OK) {
         throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
     }
     return theResponse;
 }
-apiClientResponse * apiClientSimple::apiPost(std::string postFields) {
+apiClientResponse * apiClientSimple::apiPost(std::string postData) {
+    CURLcode errCode;
     auto theResponse = new apiClientResponse();
     curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
     curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
 
-    curl_easy_setopt(handler, CURLOPT_POSTFIELDS, postFields.c_str());
+    curl_easy_setopt(handler, CURLOPT_POST, 1L);
+    curl_easy_setopt(handler, CURLOPT_POSTFIELDS, postData.c_str());
 
-    resource = curl_easy_perform(handler);
+    errCode = curl_easy_perform(handler);
 
-    if(resource != CURLE_OK) {
+    if(errCode != CURLE_OK) {
         throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
     }
     return theResponse;
 }
-void apiClientSimple::apiPut() {
+apiClientResponse *  apiClientSimple::apiPut() {
 
 }
-void apiClientSimple::apiPatch() {
+apiClientResponse * apiClientSimple::apiPatch(std::string patchData) {
+    CURLcode errCode;
+    auto theResponse = new apiClientResponse();
+    curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
 
+    curl_easy_setopt(handler, CURLOPT_CUSTOMREQUEST, "PATCH");
+    curl_easy_setopt(handler, CURLOPT_POSTFIELDS, patchData.c_str());
+
+    errCode = curl_easy_perform(handler);
+
+    if(errCode != CURLE_OK) {
+        throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
+    }
+    return theResponse;
 }
 
 apiClientSimple::~apiClientSimple() {
