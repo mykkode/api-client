@@ -17,9 +17,19 @@ int main() {
         respose -> debug();
         std::string image = respose->getBody();
         f<<image;
+        delete respose;
+
+        myApi->setEndpoint("/dolphins");
+        respose = myApi->apiPost("user=dolph");
+        std::cout<<std::endl;
+        std::cout<<respose->getBody();
+        respose -> debug();
+        delete respose;
     }
     catch(apiClientException & e) {
         std::cout <<e.what();
     }
     apiClientSimple::deinitialize();
+
+    delete myApi;
 }

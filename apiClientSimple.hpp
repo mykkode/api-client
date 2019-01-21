@@ -20,6 +20,7 @@ CURLcode resource;
 public:
     static bool initialized;
     apiClientSimple();
+    ~apiClientSimple();
     static void initialize();
     static void deinitialize();
     static size_t parseHeaderElement(char *buffer, size_t size, size_t nitems, void *userdata);
@@ -29,7 +30,7 @@ public:
     void modifyHeader(const std::string newHeader[], int numberOfHeaders);
     void reset();
     apiClientResponse *  apiGet();
-    void apiPost();
+    apiClientResponse * apiPost(std::string postFields);
     void apiPut();
     void apiPatch();
     void apiDelete();

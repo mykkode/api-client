@@ -99,6 +99,7 @@ apiClientResponse * apiClientSimple::apiGet() {
     auto theResponse = new apiClientResponse();
     curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
     curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
+
     resource = curl_easy_perform(handler);
 
     if(resource != CURLE_OK) {
@@ -106,12 +107,27 @@ apiClientResponse * apiClientSimple::apiGet() {
     }
     return theResponse;
 }
-void apiClientSimple::apiPost() {
+apiClientResponse * apiClientSimple::apiPost(std::string postFields) {
+    auto theResponse = new apiClientResponse();
+    curl_easy_setopt(handler, CURLOPT_HEADERDATA, theResponse);
+    curl_easy_setopt(handler, CURLOPT_WRITEDATA, theResponse);
 
+    curl_easy_setopt(handler, CURLOPT_POSTFIELDS, postFields.c_str());
+
+    resource = curl_easy_perform(handler);
+
+    if(resource != CURLE_OK) {
+        throw (apiClientException(apiClientException::API_CLIENT_EXCEPTION_WHILE_PERFORMING));
+    }
+    return theResponse;
 }
 void apiClientSimple::apiPut() {
 
 }
 void apiClientSimple::apiPatch() {
 
+}
+
+apiClientSimple::~apiClientSimple() {
+    curl_easy_cleanup(handler);
 }
