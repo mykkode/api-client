@@ -20,6 +20,7 @@ std::string endpoint;
 public:
     static bool initialized;
     apiClientSimple();
+    apiClientSimple(const apiClientSimple &);
     ~apiClientSimple();
     static void initialize();
     static void deinitialize();

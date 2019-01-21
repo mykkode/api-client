@@ -159,3 +159,9 @@ apiClientResponse * apiClientSimple::apiPatch(std::string patchData) {
 apiClientSimple::~apiClientSimple() {
     curl_easy_cleanup(handler);
 }
+
+apiClientSimple::apiClientSimple(const apiClientSimple & toCopy){
+    handler = curl_easy_duphandle(toCopy.handler);
+    url = toCopy.url;
+    endpoint = toCopy.endpoint;
+}
